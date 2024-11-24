@@ -9,13 +9,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { useToast } from "@/hooks/use-toast";
 import { createCancelSession } from "@/server/actions/stripe";
 import { useTransition } from "react";
 
 export function DeleteProductAlertDialogContent({ _id }: { _id: string }) {
   const [isDeletePending, startDeleteTransition] = useTransition();
-  const { toast } = useToast();
 
   return (
     <AlertDialogContent>
