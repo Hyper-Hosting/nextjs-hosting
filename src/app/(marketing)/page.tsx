@@ -14,7 +14,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 // import { formatCompactNumber } from "@/lib/formatters";
-import { Children, ReactNode } from "react";
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/BrandLogo";
 
