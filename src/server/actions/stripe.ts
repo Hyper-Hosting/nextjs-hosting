@@ -56,18 +56,18 @@ export async function createCustomerPortalSession() {
 
 export async function createCheckoutSession(tier: TierNames) {
   const user = await currentUser();
-  if (user == null) return { error: true };
+  if (user == null) return;
 
   const userInfo = await getUser(user.id);
   const stripeCustomerId = userInfo?.stripeCustomerId;
 
   if (stripeCustomerId == null) {
     const url = await getCheckoutSession(tier, user);
-    if (url == null) return { error: true };
+    if (url == null) return;
     redirect(url);
   } else {
     const url = await getCheckoutSession(tier, user, stripeCustomerId);
-    if (url == null) return { error: true };
+    if (url == null) return;
     redirect(url);
   }
 }
