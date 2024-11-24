@@ -1,16 +1,16 @@
-import { getProducts } from "@/server/db/products";
+// import { getProducts } from "@/server/db/products";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { ArrowRightIcon, PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { HasPermission } from "@/components/HasPermission";
-import { canAccessAnalytics } from "@/server/permissions";
+// import { HasPermission } from "@/components/HasPermission";
+// import { canAccessAnalytics } from "@/server/permissions";
 // import {
 //   CHART_INTERVALS,
 //   getViewsByDayChartData,
 // } from "@/server/db/productViews";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ViewsByDayChart } from "./_components/charts/ViewsByDayChart";
+// import { ViewsByDayChart } from "./_components/charts/ViewsByDayChart";
 import { getServers } from "@/server/db/servers";
 import { NoServers } from "./_components/NoServers";
 import { ServerGrid } from "./_components/ServerGrid";
@@ -58,21 +58,21 @@ export default async function DashboardPage() {
   );
 }
 
-async function AnalyticsChart({ userId }: { userId: string }) {
+//async function AnalyticsChart({ userId }: { userId: string }) {
   // const chartData = await getViewsByDayChartData({
   //   userId,
   //   interval: CHART_INTERVALS.last30Days,
   //   timezone: "UTC",
   // });
 
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Views by Day</CardTitle>
-      </CardHeader>
-      <CardContent>
-        {/* <ViewsByDayChart chartData={chartData} /> */}
-      </CardContent>
-    </Card>
-  );
-}
+//  return (
+//    <Card>
+//      <CardHeader>
+//        <CardTitle>Views by Day</CardTitle>
+//      </CardHeader>
+//      <CardContent>
+//        {/* <ViewsByDayChart chartData={chartData} /> */}
+//      </CardContent>
+//    </Card>
+//  );
+//}
