@@ -1,4 +1,4 @@
-import { Globe2Icon } from "lucide-react";
+// import { Globe2Icon } from "lucide-react";
 import Image from "next/image";
 import logo from "../../public/Hyper_Hosting_Logo.png"
 
