@@ -5,7 +5,7 @@ import {
   revalidateDbCache,
 } from "@/lib/cache";
 import { connectToDatabase } from "@/lib/mongoose";
-import { ServersModel } from "@/models/Servers";
+// import { ServersModel } from "@/models/Servers";
 import { UsersModel } from "@/models/User";
 
 export async function deleteUser(clerkUserId: string) {
