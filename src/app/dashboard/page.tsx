@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 //   CHART_INTERVALS,
 //   getViewsByDayChartData,
 // } from "@/server/db/productViews";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+//import {  CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // import { ViewsByDayChart } from "./_components/charts/ViewsByDayChart";
 import { getServers } from "@/server/db/servers";
 import { NoServers } from "./_components/NoServers";
