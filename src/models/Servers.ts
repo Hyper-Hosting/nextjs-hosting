@@ -9,7 +9,7 @@ export interface IExample extends Document {
   tier: TierNames;
   stripeSubscriptionItemId: string;
   stripeSubscriptionId: string;
-  cancel_at_period_end: Boolean;
+  cancel_at_period_end: boolean;
   pteroId: string,
   pteroIdentifier: string
 }
