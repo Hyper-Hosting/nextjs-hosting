@@ -4,7 +4,6 @@ import { NoProducts } from "../_components/NoServers";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { PlusIcon } from "lucide-react";
-import { ProductGrid } from "../_components/ProductGrid";
 
 export default async function Products() {
   const { userId, redirectToSignIn } = await auth();
