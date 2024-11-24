@@ -8,10 +8,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { subscriptionTiersInOrder } from "@/data/subscriptionTiers";
-import { formatCompactNumber } from "@/lib/formatters";
+// import { formatCompactNumber } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
 import {
-  createCancelSession,
   createCheckoutSession,
 } from "@/server/actions/stripe";
 import { CheckIcon } from "lucide-react";
