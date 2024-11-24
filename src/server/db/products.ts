@@ -289,7 +289,7 @@ async function getProductCountryGroupsInternal({
     }
   );
 
-  let result: {
+  const result: {
     _id: string;
     name: string;
     recommendedDiscountPercentage: number | null;
@@ -461,6 +461,7 @@ async function getProductCountInternal(userId: string) {
   return counts;
 }
 
+/**
 async function getProductForBannerInternal({
   _id,
   countryCode,
@@ -568,3 +569,4 @@ async function getProductForBannerInternal({
   //         },
   // };
 }
+**/
