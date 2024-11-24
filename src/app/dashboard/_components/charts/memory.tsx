@@ -6,15 +6,11 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { formatCompactNumber } from "@/lib/formatters";
+// import { formatCompactNumber } from "@/lib/formatters";
 import {
   Area,
   AreaChart,
-  Bar,
-  BarChart,
   CartesianGrid,
-  XAxis,
-  YAxis,
 } from "recharts";
 
 export function MemoryUsageChart({
