@@ -137,3 +137,4 @@ export async function updateProductCustomization(
 
   return { error: false, message: "Banner updated" };
 }
+*/
