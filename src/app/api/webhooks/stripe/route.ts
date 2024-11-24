@@ -1,11 +1,11 @@
 import { env } from "@/data/env/server";
-import { getTierByPriceId, subscriptionTiers } from "@/data/subscriptionTiers";
+import { getTierByPriceId } from "@/data/subscriptionTiers";
 import {
   createServerSubscription,
   deleteServerSubscription,
   updateServerSubscription,
 } from "@/server/db/servers";
-import { updateUserSubscription } from "@/server/db/subscriptions";
+//import { updateUserSubscription } from "@/server/db/subscriptions";
 import { NextRequest } from "next/server";
 import Stripe from "stripe";
 
