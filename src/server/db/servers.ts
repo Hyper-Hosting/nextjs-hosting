@@ -145,7 +145,7 @@ export async function updateServerSubscription({
   stripeSubscriptionId: string;
   tier: TierNames;
   customerId: string;
-  cancel_at_period_end: Boolean;
+  cancel_at_period_end: boolean;
 }) {
   await connectToDatabase();
 
