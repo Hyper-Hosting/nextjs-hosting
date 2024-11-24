@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -28,7 +27,7 @@ export function ServerGrid({
     _id: string;
     name: string;
     url: string;
-    cancel_at_period_end: Boolean;
+    cancel_at_period_end: boolean;
   }[];
 }) {
   return (
@@ -49,7 +48,7 @@ export function ServerCard({
   _id: string;
   name: string;
   url: string;
-  cancel_at_period_end: Boolean;
+  cancel_at_period_end: boolean;
 }) {
   const serverCanceled = cancel_at_period_end;
   // TODO: const usage = await getResourceUsage()
