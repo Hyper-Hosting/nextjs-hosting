@@ -16,7 +16,6 @@ import {
 } from "@/server/db/products";
 import { redirect } from "next/navigation";
 import { canCreateProduct, canCustomizeBanner } from "../permissions";
-import { ObjectId } from "mongoose";
 
 export async function createProduct(
   unsafeData: z.infer<typeof productDetailsSchema>
