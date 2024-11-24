@@ -2,13 +2,13 @@ import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { env } from "@/data/env/server";
-import {
-  createUserSubscription,
-  getUserSubscription,
-} from "@/server/db/subscriptions";
+//import {
+//  createUserSubscription,
+//  getUserSubscription,
+//} from "@/server/db/subscriptions";
 import { createUser, deleteUser } from "@/server/db/users";
 import { Stripe } from "stripe";
-import { deleteServerSubscription, getServers } from "@/server/db/servers";
+import { getServers } from "@/server/db/servers";
 import { ServersModel } from "@/models/Servers";
 import { connectToDatabase } from "@/lib/mongoose";
 import { CACHE_TAGS, revalidateDbCache } from "@/lib/cache";
