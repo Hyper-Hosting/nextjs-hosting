@@ -52,7 +52,7 @@ export function ServerCard({
   cancel_at_period_end: Boolean;
 }) {
   const serverCanceled = cancel_at_period_end;
-  const usage = await getResourceUsage()
+  // TODO: const usage = await getResourceUsage()
 
   const chartData = [
     { id: 1, usage: 200 },
