@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -18,7 +19,6 @@ import Link from "next/link";
 import { AddToSiteProductModalContent } from "./AddToSiteProductModalContent";
 import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { DeleteProductAlertDialogContent } from "./DeleteProductAlertDialogContent";
-import { MemoryUsageChart } from "./charts/memory";
 
 export function ServerGrid({
   servers,
@@ -51,20 +51,6 @@ export function ServerCard({
   cancel_at_period_end: boolean;
 }) {
   const serverCanceled = cancel_at_period_end;
-  // TODO: const usage = await getResourceUsage()
-
-  const chartData = [
-    { id: 1, usage: 200 },
-    { id: 2, usage: 100 },
-    { id: 3, usage: 240 },
-    { id: 4, usage: 444 },
-    { id: 5, usage: 23 },
-    { id: 6, usage: 150 },
-    { id: 7, usage: 229 },
-    { id: 8, usage: 345 },
-    { id: 9, usage: 123 },
-    { id: 10, usage: 14 },
-  ];
 
   return (
     <Card>
@@ -106,14 +92,8 @@ export function ServerCard({
             <AddToSiteProductModalContent _id={_id} />
           </Dialog>
         </div>
-        <CardDescription>
+        <CardDescription className="overflow-hidden">
           <Link href={url}>{url}</Link>
-
-          <div className="mt-5 flex gap-2">
-            <MemoryUsageChart chartData={chartData} />
-            <MemoryUsageChart chartData={chartData} />
-            <MemoryUsageChart chartData={chartData} />
-          </div>
         </CardDescription>
       </CardHeader>
     </Card>

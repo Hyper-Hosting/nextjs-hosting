@@ -2,17 +2,14 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { subscriptionTiersInOrder } from "@/data/subscriptionTiers";
-// import { formatCompactNumber } from "@/lib/formatters";
+import { formatCompactNumber } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
-import {
-  createCheckoutSession,
-} from "@/server/actions/stripe";
+import { createCheckoutSession } from "@/server/actions/stripe";
 import { CheckIcon } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -42,9 +39,6 @@ export function PricingCard({
         <CardTitle className="text-xl font-bold">
           ${priceInCents / 100} /mo
         </CardTitle>
-        <CardDescription>
-          {/* {formatCompactNumber(maxNumberOfVisits)} pricing page visits/mo */}
-        </CardDescription>
       </CardHeader>
       <CardContent>
         <form action={createCheckoutSession.bind(null, name)}>

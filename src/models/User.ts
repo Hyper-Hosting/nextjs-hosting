@@ -5,6 +5,7 @@ export interface IExample extends Document {
   clerkUserId: string;
   stripeCustomerId: string | null;
   pteroId: string | null;
+  pteroPasswordSet: boolean;
 }
 
 const schema = new Schema<IExample>({
@@ -20,6 +21,11 @@ const schema = new Schema<IExample>({
   pteroId: {
     type: String,
     default: null,
+  },
+  pteroPasswordSet: {
+    type: Boolean,
+    required: true,
+    default: false,
   },
 });
 

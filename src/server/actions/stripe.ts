@@ -2,7 +2,6 @@
 
 import { subscriptionTiers, TierNames } from "@/data/subscriptionTiers";
 import { auth, currentUser, User } from "@clerk/nextjs/server";
-//import { getUserSubscription } from "../db/subscriptions";
 import { Stripe } from "stripe";
 import { env as serverEnv } from "@/data/env/server";
 import { env as clientEnv } from "@/data/env/client";
@@ -99,14 +98,13 @@ async function getCheckoutSession(
       },
     ],
     mode: "subscription",
-    success_url: `${clientEnv.NEXT_PUBLIC_SERVER_URL}/dashboard/servers`,
-    cancel_url: `${clientEnv.NEXT_PUBLIC_SERVER_URL}/dashboard/servers`,
+    success_url: `${clientEnv.NEXT_PUBLIC_SERVER_URL}/dashboard`,
+    cancel_url: `${clientEnv.NEXT_PUBLIC_SERVER_URL}/dashboard`,
   });
 
   return session.url;
 }
 
-/**
 async function getSubscriptionUpgradeSession(
   tier: TierNames,
   subscription: {
@@ -143,5 +141,3 @@ async function getSubscriptionUpgradeSession(
 
   return portalSession.url;
 }
-
-**/

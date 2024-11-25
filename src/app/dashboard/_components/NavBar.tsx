@@ -4,14 +4,14 @@ import Link from "next/link";
 
 export function NavBar() {
   return (
-    <header className="flex py-4 shadow bg-background">
-      <nav className="flex items-center gap-10 container">
-        <Link href="/dashboard" className="mr-auto">
+    <header className="flex py-6 shadow bg-background">
+      <nav className="flex items-center gap-10 container font-semibold">
+        <Link href="/" className="mr-auto">
           <BrandLogo />
         </Link>
-        <Link href="/dashboard/products">Products</Link>
-        <Link href="/dashboard/analytics">Analytics</Link>
-        <Link href="/dashboard/subscription">Subscription</Link>
+        <span className="text-lg">
+          <Link href="/dashboard">Dashboard</Link>
+        </span>
         <UserButton />
       </nav>
     </header>

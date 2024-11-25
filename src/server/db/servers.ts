@@ -71,6 +71,7 @@ async function getServersInternal(
       url: 1,
       cancel_at_period_end: 1,
       stripeSubscriptionId: 1,
+      pteroId: 1,
     }
   )
     .sort({
@@ -84,6 +85,7 @@ async function getServersInternal(
     url: server.url,
     cancel_at_period_end: server.cancel_at_period_end,
     stripeSubscriptionId: server.stripeSubscriptionId,
+    pteroId: server.pteroId,
   }));
 }
 
@@ -213,8 +215,7 @@ export async function deleteServerSubscription({
     stripeCustomerId,
   });
 
-  if (!user)
-    throw new Error(`Cannot find user! Stripe ID: ${stripeCustomerId}`);
+  if (!user) return;
 
   const deletedServer = await ServersModel.findOneAndDelete({
     clerkUserId: user.clerkUserId,

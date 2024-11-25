@@ -13,7 +13,6 @@ export const env = createEnv({
     STRIPE_BASIC_PLAN_PRICE_ID: z.string(),
     STRIPE_STANDARD_PLAN_PRICE_ID: z.string(),
     STRIPE_PREMIUM_PLAN_PRICE_ID: z.string(),
-    TEST_COUNTRY_CODE: z.string(),
     PANEL_API: z.string(),
   },
   experimental__runtimeEnv: process.env,

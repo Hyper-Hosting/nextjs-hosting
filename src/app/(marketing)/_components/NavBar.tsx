@@ -1,5 +1,5 @@
 import { BrandLogo } from "@/components/BrandLogo";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export function NavBar() {
@@ -9,15 +9,6 @@ export function NavBar() {
         <Link href="/" className="mr-auto">
           <BrandLogo />
         </Link>
-        <Link className="text-lg" href="#">
-          Features
-        </Link>
-        <Link className="text-lg" href="/#pricing">
-          Pricing
-        </Link>
-        <Link className="text-lg" href="#">
-          About
-        </Link>
         <span className="text-lg">
           <SignedIn>
             <Link href="/dashboard">Dashboard</Link>
@@ -26,6 +17,9 @@ export function NavBar() {
             <SignInButton>Login</SignInButton>
           </SignedOut>
         </span>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </nav>
     </header>
   );

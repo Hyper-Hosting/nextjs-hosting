@@ -2,16 +2,13 @@ import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { env } from "@/data/env/server";
-//import {
-//  createUserSubscription,
-//  getUserSubscription,
-//} from "@/server/db/subscriptions";
 import { createUser, deleteUser } from "@/server/db/users";
 import { Stripe } from "stripe";
 import { getServers } from "@/server/db/servers";
 import { ServersModel } from "@/models/Servers";
 import { connectToDatabase } from "@/lib/mongoose";
 import { CACHE_TAGS, revalidateDbCache } from "@/lib/cache";
+import { deleteServer } from "@/server/actions/ptero";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY);
 
@@ -69,6 +66,7 @@ export async function POST(req: Request) {
 
         for (const server of userServers) {
           await stripe.subscriptions.cancel(server.stripeSubscriptionId);
+          await deleteServer(server.pteroId);
         }
 
         await deleteUser(event.data.id);

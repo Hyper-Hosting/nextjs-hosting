@@ -1,8 +1,13 @@
+"use server";
+
 import { env } from "@/data/env/server";
 import { getTierByName, TierNames } from "@/data/subscriptionTiers";
 import { CACHE_TAGS, revalidateDbCache } from "@/lib/cache";
 import { UsersModel } from "@/models/User";
+import { setPasswordSchema } from "@/schemas/server";
 import { clerkClient } from "@clerk/nextjs/server";
+import { z } from "zod";
+import { setPassword } from "../db/users";
 
 export async function createUser(clerkUserId: string) {
   const user = await clerkClient().users.getUser(clerkUserId);
@@ -74,6 +79,32 @@ export async function findUserByEmail(email: string) {
     for (const user of result.data) {
       if (user.attributes.email == email) {
         return user.attributes.id;
+      }
+    }
+  }
+
+  return 0;
+}
+
+export async function findUserById(id: string) {
+  const response = await fetch(
+    "https://panel.hyperhostings.com/api/application/users",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${env.PANEL_API}`,
+      },
+    }
+  );
+
+  const result = await response.json();
+
+  if (result.data) {
+    for (const user of result.data) {
+      if (user.attributes.id == id) {
+        return user.attributes;
       }
     }
   }
@@ -158,4 +189,39 @@ export async function getFreeAllocation() {
   }
 
   return allocation;
+}
+
+export async function setPteroPassword(
+  pteroId: string,
+  unsafeData: z.infer<typeof setPasswordSchema>
+) {
+  const { success, data } = setPasswordSchema.safeParse(unsafeData);
+
+  if (!success) {
+    return {
+      error: true,
+      message: "There was an error saving your password",
+    };
+  }
+
+  await setPassword(pteroId, data.password);
+
+  return {
+    error: false,
+    message: "Password Saved",
+  };
+}
+
+export async function deleteServer(pteroId: string) {
+  await fetch(
+    `https://panel.hyperhostings.com/api/application/servers/${pteroId}/force`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${env.PANEL_API}`,
+      },
+    }
+  );
 }

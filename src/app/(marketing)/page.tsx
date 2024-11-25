@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { SignUpButton } from "@clerk/nextjs";
 import { ArrowRightIcon, CheckIcon } from "lucide-react";
-import { NeonIcon } from "./_icons/Neon";
 import Link from "next/link";
-import { ClerkIcon } from "./_icons/Clerk";
 import { subscriptionTiersInOrder } from "@/data/subscriptionTiers";
 import {
   Card,
@@ -13,10 +11,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-// import { formatCompactNumber } from "@/lib/formatters";
-import { ReactNode } from "react";
+import { formatCompactNumber } from "@/lib/formatters";
+import { Children, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/BrandLogo";
+import { LslrpIcon } from "./_icons/LslrpLogo";
+import { SalrpIcon } from "./_icons/SalrpLogo";
+import { CodeBlueIcon } from "./_icons/CodeBlueLogo";
 
 export default function HomePage() {
   return (
@@ -39,47 +40,32 @@ export default function HomePage() {
       <section className="bg-primary text-primary-foreground">
         <div className="container py-16 flex flex-col gap-16 px-8 md:px-16">
           <h2 className="text-3xl text-center text-balance">
-            Trusted by the top modern companies
+            Trusted by our top customers
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-16">
-            <Link href="https://neon.tech">
-              <NeonIcon />
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-16">
+            <Link
+              href="https://www.lossantosliferoleplay.com/"
+              className="flex justify-center items-center"
+            >
+              <LslrpIcon className="w-25" />
             </Link>
-            <Link href="https://clerk.com">
-              <ClerkIcon />
+            <Link
+              href="https://discord.gg/code-blue-tm-hq-478353332386398218"
+              className="flex justify-center items-center"
+            >
+              <CodeBlueIcon className="w-25" />
             </Link>
-            <Link href="https://neon.tech">
-              <NeonIcon />
-            </Link>
-            <Link href="https://clerk.com">
-              <ClerkIcon />
-            </Link>
-            <Link href="https://neon.tech">
-              <NeonIcon />
-            </Link>
-            <Link href="https://clerk.com">
-              <ClerkIcon />
-            </Link>
-            <Link href="https://neon.tech">
-              <NeonIcon />
-            </Link>
-            <Link href="https://clerk.com">
-              <ClerkIcon />
-            </Link>
-            <Link href="https://neon.tech">
-              <NeonIcon />
-            </Link>
-            <Link className="md:max-xl:hidden" href="https://clerk.com">
-              <ClerkIcon />
+            <Link href="#" className="flex justify-center items-center">
+              <SalrpIcon className="w-25" />
             </Link>
           </div>
         </div>
       </section>
       <section id="pricing" className="px-8 py-16 bg-accent/5">
         <h2 className="text-4xl text-center text-balance font-semibold mb-8">
-          Pricing software which pays for itself 20x over
+        Transparent Pricing for Reliable Hosting Built for Your Development Needs
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-screen-xl mx-auto">
           {subscriptionTiersInOrder.map((tier) => (
             <PricingCard key={tier.name} {...tier} />
           ))}
@@ -90,7 +76,7 @@ export default function HomePage() {
           <BrandLogo />
         </Link>
         <div className="flex flex-col sm:flex-row gap-8">
-          <div className="flex flex-col gap-8">
+          {/* <div className="flex flex-col gap-8">
             <FooterLinkGroup
               title="Help"
               links={[
@@ -222,7 +208,7 @@ export default function HomePage() {
                 },
               ]}
             />
-          </div>
+          </div> */}
         </div>
       </footer>
     </>

@@ -5,7 +5,6 @@ import {
   deleteServerSubscription,
   updateServerSubscription,
 } from "@/server/db/servers";
-//import { updateUserSubscription } from "@/server/db/subscriptions";
 import { NextRequest } from "next/server";
 import Stripe from "stripe";
 
